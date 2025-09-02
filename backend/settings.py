@@ -205,6 +205,20 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
+# Additional CORS settings for production
+CORS_ALLOW_ALL_ORIGINS = False  # Keep this False for security
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
@@ -212,6 +226,22 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:5173",
     "https://sub4subyoutube.netlify.app",  # Add your frontend production domain
 ]
+
+# CSRF settings for production
+CSRF_COOKIE_SECURE = True  # Use secure cookies in production
+CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access to CSRF token
+CSRF_COOKIE_SAMESITE = 'Lax'  # Allow cross-site requests
+CSRF_USE_SESSIONS = False  # Use cookies instead of sessions for CSRF
+
+# Additional security settings for production
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False  # Let Railway handle SSL
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+
+# Session settings for production
+SESSION_COOKIE_SECURE = True  # Use secure cookies in production
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 # Allauth settings
 AUTHENTICATION_BACKENDS = [
