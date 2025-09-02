@@ -53,3 +53,11 @@ MIDDLEWARE = [
     # ...existing middleware...
 ]
 
+# Allow all Railway domains
+ALLOWED_HOSTS = [
+    'sub4subconnect-production.up.railway.app',
+    '.railway.app',  # Allows all Railway subdomains
+]
+
+# For development, you can also allow localhost
+# ALLOWED_HOSTS = ['*']  # ⚠️ Only for testing, not production!
