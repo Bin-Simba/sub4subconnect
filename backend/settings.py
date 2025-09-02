@@ -27,9 +27,15 @@ SECRET_KEY = 'django-insecure-g14=-1c!9@lkn8-1h%1qe4%ns7wpt!y#=0x0$t3f**b'
 YOUTUBE_API_KEY = 'AIzaSyCyrLA3pmrWdRHQR7CymuODE5a6ISSRmGY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Set to False for production
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    '0.0.0.0',
+    'sub4subconnect-production.up.railway.app',
+    '.railway.app'  # Allows all Railway subdomains
+]
 
 
 # Application definition
@@ -194,6 +200,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8080",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://sub4subyoutube.netlify.app",  # Add your frontend production domain
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -203,6 +210,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://sub4subyoutube.netlify.app",  # Add your frontend production domain
 ]
 
 # Allauth settings
